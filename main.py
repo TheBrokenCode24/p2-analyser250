@@ -3,7 +3,10 @@ This is the main program where the user will analyze the ranking sheet.
 """
 
 # Imports the ranking and list of countries to this program.
-from import_ranking import ranking_2023, ranking_2024, ranking_2025, countries_2023, countries_2024, countries_2025, years_2023, years_2024, years_2025, ranking_1732_2023, ranking_1769_2024, ranking_1806_2025, countries, users2023, users2024
+from ranking import ranking_2023, ranking_2024, ranking_2025, countries_2023, countries_2024, countries_2025, years_2023, years_2024, years_2025, ranking_1732_2023, ranking_1769_2024, ranking_1806_2025, countries, users2023, users2024
+
+# Global variables for all functions to use.
+num_entries = {2023: 1732, 2024: 1769, 2025: 1806}
 
 # Function prints out the entire ranking based on averages from all users.
 def entire_ranking(edition, all_rankings=[ranking_2023, ranking_2024, ranking_2025]):
@@ -19,7 +22,7 @@ def entire_ranking(edition, all_rankings=[ranking_2023, ranking_2024, ranking_20
     print(f"\nThe Entire Ranking of ALTESC250 {edition} (All Users):")
     
     # 2023 and 2024's spreadsheet are in the same format, so they share the same print statement format.
-    # 2025
+    # 2025's spreadsheet is in a different format, so it uses a different print statement format.
     if edition == 2025:
         for n in range(4, len(ranking)):
             entry = ranking[n]
@@ -37,7 +40,6 @@ def entire_ranking_all_songs(edition, all_rankings=[ranking_1732_2023, ranking_1
         ranking = all_rankings[1]
     else:
         ranking = all_rankings[2]
-    num_entries = {2023: 1732, 2024: 1769, 2025: 1806}
     print(f"\nThe Entire Ranking of ALTESC250 {edition} ({num_entries[edition]} Club):")
     if edition == 2023:
         for n in range(4, len(ranking)):
@@ -66,6 +68,7 @@ def all_country_average(ranking, edition):
         country = ranking[n]
         print(f"{country[0]}. {country[2]} - {country[3]}")
 
+# 
 def print_all_users(users, edition):
     print("\nAll Participating Users:")
     for n in range(len(users)):
@@ -134,7 +137,7 @@ def main():
     if choice1 == 1:
         print("\nWhere would you like to get the ranking from?")
         print("1 - All users")
-        print("2 - All users who ranked all 1769 songs")
+        print(f"2 - All users who ranked all {num_entries[edition]} songs")
         if edition == 2025:
             print("3 - The organizer's ranking")
         else:

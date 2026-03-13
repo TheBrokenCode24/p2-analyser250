@@ -17,7 +17,7 @@ def main():
     edition = int(input("Select the year: "))
 
     while edition not in [2023, 2024, 2025]:
-        print("Select a year that is ACTUALLY from this list here!")
+        print("\nSelect a year that is ACTUALLY from this list here!")
         print(" - 2023\n - 2024\n - 2025")
         edition = int(input("Select the year FROM THE LIST: ")) 
 
@@ -77,7 +77,6 @@ def main():
     # If statements that calls each function depending on the choice.
     if edition in [2023, 2024]:
         if choice1 == 1:
-            
             print_all_users()
     elif choice1 == numbers[0]:
         # Print statement
